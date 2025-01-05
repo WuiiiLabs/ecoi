@@ -1,5 +1,24 @@
 # Economic Credit Operations Infrastructure [Ecoi]
 
+<!-- Add Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Full-width for the first image and 3 images in a row for the second row -->
+<div class="flex flex-wrap w-full">
+  
+  <!-- Next 3 images in a row (Row 2) -->
+  <div class="w-1/3 mb-4">
+    <img src="./images/bimg1.jpg" alt="Image 2" class="w-full h-auto transition-transform transform hover:scale-105 duration-300 ease-in-out">
+  </div>
+  <div class="w-1/3 mb-4">
+    <img src="./images/bimg2.jpg" alt="Image 3" class="w-full h-auto transition-transform transform hover:scale-105 duration-300 ease-in-out">
+  </div>
+  <div class="w-1/3 mb-4">
+    <img src="./images/bimg3.jpg" alt="Image 4" class="w-full h-auto transition-transform transform hover:scale-105 duration-300 ease-in-out">
+  </div>
+</div>
+
+
 ## About
 
 **Ecoi** is a powerful and flexible package designed to simplify economy management tasks. Whether you're building a Discord economy bot or creating a more complex economy management system, Ecoi is equipped to handle all aspects of it with ease.
