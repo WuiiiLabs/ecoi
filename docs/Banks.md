@@ -12,7 +12,6 @@ from core.economy import banks
 - currency exchange transaction for banks
 
 ## CURD+ Operations
-### Bank Creation
 ```py
 bank = banks.createBank(
     name: str,
@@ -36,9 +35,7 @@ bank = banks.createBank(
     },
     # others
 ]
-```
-### Bank Setup
-```py
+
 bank.setup(
     gsupport: List[str], # group_ids supporting dictionaries
     cooperative: bool,
@@ -46,9 +43,7 @@ bank.setup(
     adm_schema: dict,
     projects: list,
 )
-```
-### Bank Update
-```py
+
 bank.update(
     name: str,
     logo: str,
@@ -61,27 +56,71 @@ bank.update(
     investment: List[dict],
     **kwargs,
 )
-```
-### Bank Read
-```py
-bank.read()
-```
-### Bank Upgrade
-```py
+
+bank.read(
+    format = Literal['dict', 'bson'],
+    print_console = Literal[True, False],
+    filter: dict,
+    query_vars: list = None,
+    limit: int=10,
+)
+
 bank.upgrade(...)
-``` 
-### Bank Delete
-```py
+
 bank.delete()
 ```
 
-### Branch Operations
+### Branch 
+#### CURD+ Operations
 ```py
 bank.createBranch(...)
-bank.updateBranch(...)
+bank..updateBranch(...)
 bank.readBranch(...)
+bank.updateBranch(...)
 bank.deleteBranch(...)
 ```
+
+## Cards
+bank.createCard(...)
+bank.updateCard(...)
+bank.readCard(...)
+bank.deleteCard(...)
+
+## Bank Processes
+process = bank.createProcess(...)
+process_id = process.id
+
+process.start(...)
+process.automate(...)
+process.bind(...)
+process.update(...)
+process.restart(...)
+process.delete()
+
+process.createSubProcess(...)
+process.getSubProcesses(...)
+process.killSubProcesses(...)
+
+## Bank Config
+bank.setConfig(...)
+bank.updateConfig(...)
+
+## Bank Accounts
+acc = bank.createAccount(...)
+acc_id = acc.id
+
+bank.getAccount(acc_id, ...)
+bank.getAccounts(...)
+
+bank.updateAccounts(...)
+bank.deleteAccounts(...)
+bank.freezeAccounts(...)
+
+## Account Cards
+card = acc.createCard(...)
+
+acc.updateCard(...)
+
 
 ## Currency Exchange
 ```py

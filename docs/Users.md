@@ -36,8 +36,10 @@ user.update(
 user.upgrade()             # Upgrade the user's status, role, or permissions
 
 readable_user = user.read(
-    format = Literal['dict', 'bson'],  # Format of the returned data (dict or bson)
-    print_console = Literal[True, False],  # Print the result in the console or not
+    format = Literal['dict', 'bson'], 
+    print_console = Literal[True, False],
+    filter: dict,
+
     ...
 )
 
@@ -67,9 +69,11 @@ user.delete()              # Delete the user's account permanently
 
 ```python
 user.profile.read(
-    format = Literal['dict', 'bson'],  # Format of returned profile data
-    print_console = Literal[True, False],  # Print profile data in console
-    filter: dict,             # Filter conditions for reading specific profile data
+    format = Literal['dict', 'bson'],
+    print_console = Literal[True, False],
+    filter: dict,
+    query_vars: list = None,
+    limit: int=10,
 )
 user.profile.update(
     name: str,               # Update the name of the user
