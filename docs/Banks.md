@@ -81,12 +81,15 @@ bank.deleteBranch(...)
 ```
 
 ## Cards
+```py
 bank.createCard(...)
 bank.updateCard(...)
 bank.readCard(...)
 bank.deleteCard(...)
+```
 
 ## Bank Processes
+```py
 process = bank.createProcess(...)
 process_id = process.id
 
@@ -100,12 +103,16 @@ process.delete()
 process.createSubProcess(...)
 process.getSubProcesses(...)
 process.killSubProcesses(...)
+```
 
 ## Bank Config
+```py
 bank.setConfig(...)
 bank.updateConfig(...)
+```
 
 ## Bank Accounts
+```py
 acc = bank.createAccount(...)
 acc_id = acc.id
 
@@ -115,11 +122,48 @@ bank.getAccounts(...)
 bank.updateAccounts(...)
 bank.deleteAccounts(...)
 bank.freezeAccounts(...)
+```
 
 ## Account Cards
+```py
 card = acc.createCard(...)
+card.updateCard(...)
+card.read(...)
+card.delete()
+```
 
-acc.updateCard(...)
+## Customers
+```py
+custModel = banks.modelCustomer(...)
+custModel.update(...)
+custModel.read(...)
+custModel.delete()
+
+cust = banks.createCustomer(...)
+cust.modelUpdate(...)
+cust.read(...)
+cust.delete()
+```
+
+## Department
+```py
+dept = banks.createDept(...)
+dept.update(...)
+dept.read(...)
+dept.read(...)
+```
+
+## Bank Roles
+```py
+role = banks.createRole(...)
+role.update(...)
+role.read(...)
+role.setPermissions(...)
+role.updatePermissions(...)
+role.addEmployee(...)
+role.updateEmployee(...)
+role.removeEmployee(...)
+role.delete()
 
 
 ## Currency Exchange
