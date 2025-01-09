@@ -150,7 +150,24 @@ cust.delete()
 dept = banks.createDept(...)
 dept.update(...)
 dept.read(...)
-dept.read(...)
+dept.delete(...)
+```
+
+## Tickets
+```py
+banks.setTicketRole(...) # name and perms
+banks.updateTicketRole(...)
+banks.readTicketRole(...)
+banks.delTicketRole(...)
+
+ticket = banks.createTicket(...)
+ticket.open(...)
+ticket.close(...)
+ticket.report(...)
+ticket.assign(...)
+ticket.update(...)
+ticket.read(...)
+ticket.delete()
 ```
 
 ## Bank Roles
@@ -164,7 +181,7 @@ role.addEmployee(...)
 role.updateEmployee(...)
 role.removeEmployee(...)
 role.delete()
-
+```
 
 ## Currency Exchange
 ```py
