@@ -22,14 +22,20 @@ group.getSubGroup(sub_group_id)
 group.deleteSubGroup(sub_group_id)
 group.updateSubGroup(sub_group_id, ...)
 
+
 group.read()
 user1.getGroupShip()
 group.getMembersInfo(user_id)
 group.getMembers()
 group.getOwnerId()
+group.getRoles()
 
+group.sposor(...)
+group.advertise(...)
+```
 
-# Roles
+## Roles
+```py
 role = group.createRole(name, ...)
 role_id = role.id
 
@@ -48,4 +54,28 @@ role.block(...)
 role.unblock(...)
 
 role.delete(...)
+```
+
+## MarketPlace
+```py
+mp = group.createMarketplace(...)
+mp.read(...)
+
+shop = mp.createShop(...)
+shop.read(...)
+shop.update(...)
+shop.delete(...)
+
+comp = mp.createCompany(...)
+comp.read(...)
+comp.update(...)
+comp.delete(...)
+
+place = mp.createPlace(...)
+place.read(...)
+place.update(...)
+place.delete(...)
+
+mp.update(...)
+mp.delete(...)
 ```
