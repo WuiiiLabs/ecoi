@@ -1,114 +1,132 @@
-# Events
-Events can be of many types and different structures. These properties and features should be addressed while making docs for the events:
-- basic curd operations of events
-- events with multiple stages
-- events with multiple rounds
-- participants dividing and merging
-- filtering of events
-- advertisements of events
-- deadlines of rounds
-- multiple events within event
-- backward propogation for ranking
-- groups allocation in event
-- roles allocation
-- permissions allocation
-- sponsorships of event
-- payments of event
-- quizes, tests, and other activities of events
-- bad participant blocking, consent forms, and other features
-- gifts, rewards, and other incentives provided by event
-- jurying process, voting process, and other decision making processes
-- event site hosting and other processes
+# **Events Management System**  
 
-## Imports 
+## **Imports**  
 ```py
 from ecoi.core import events as evts
 ```
 
-## CURD+ Operations
+## **CRUD & Lifecycle Operations**  
 ```py
 event = evts.createEvent(...)
 event_id = event.id
 
-event.cancel(...)
 event.update(...)
-
-event.start(...)
-event.block(...)
-event.end(...)
-
-event.sponsor(...)
-event.advertise(...)
-event.pay(...)
-event.gift(...)
-event.reward(...)
-
 event.delete()
+event.cancel()
+
+event.start()
+event.end()
+event.block()
 ```
 
-## Event Structure
+
+## **Sponsorship, Advertising & Financials**  
 ```py
-event.rounds()
-event.addRounds(...)
-event.removeRounds(...)
-event.updateRounds(...)
+event.sponsorships.add(...)
+event.sponsorships.get(...)
+event.sponsorships.remove(...)
 
-round = event.rounds()[0]
-round.filter(...)
-round.addFilter(...)
-round.removeFilter(...)
-round.updateFilter(...)
-round.filterInfo(...)
+event.ads.add(...)
+event.ads.get(...)
+event.ads.remove(...)
 
-event.addSubEvent(...)
-event.subEventInfo(...)
-event.removeSubEvent(...)
-event.updateSubEvent(...)
-event.subEvents()
+event.payments.add(...)
+event.payments.get(...)
+event.payments.remove(...)
+
+event.gifts.add(...)
+event.gifts.get(...)
+event.gifts.remove(...)
+
+event.rewards.add(...)
+event.rewards.get(...)
+event.rewards.remove(...)
 ```
 
-## Event Information
+## **Event Rounds & Stages**  
 ```py
-event.getRound(...)
-event.getRounds(...)
-event.getParticipant(...)
-event.getParticipantStatus(...)
-event.getParticipants(...)
-event.getGroup(...)
-event.getGroups(...)
-event.getRole(...)
-event.getRoles(...)
-event.getOrganizer(...)
-event.getOrganizers(...)
-event.getJury(...)
-event.getJurys(...)
-event.getSponsor(...)
-event.getSponsors(...)
-event.getAd(...)
-event.getAds(...)
-event.getPayment(...)
-event.getPayments(...)
-event.getGift(...)
-event.getGifts(...)
-event.getReward(...)
-event.getRewards(...)
-event.getFilter(...)
-event.getFilters(...)
-event.getSubEvent(...)
-event.getSubEvents(...)
-event.getPermission(...)
-event.getPermissions(...)
-event.getSite(...)
-event.getContacts(...)
+event.rounds.add(...)
+event.rounds.get(...)
+event.rounds.remove(...)
+event.rounds.update(...)
 
-round.info(...)
-round.filterInfo(...)
+round = event.rounds.get()[0]
+round.next()
+round.info()
 ```
 
-## Event Management
+
+## **Participants & Jury**  
 ```py
-event.participants()
-event.addParticipants(...)
-event.removeParticipants(...)
-event.updateParticipants(...)
+event.participants.add(...)
+event.participants.get(...)
+event.participants.remove(...)
+event.participants.update(...)
+event.participants.block(...)
+event.participants.consentForm(...)
+```
+
+### **Voting & Jury System**  
+```py
+round.participants.vote(...)       
+round.participants.getVotes(...)  
+
+round.jury.vote(participant_id)  
+round.jury.getVotes(...)           
+```
+
+## **Groups & Roles**  
+```py
+event.groups.add(...)
+event.groups.get(...)
+event.groups.remove(...)
+event.groups.update(...)
+
+event.roles.add(...)
+event.roles.get(...)
+event.roles.remove(...)
+event.roles.update(...)
+```
+
+## **Permissions & Access Control**  
+```py
+event.permissions.add(...)
+event.permissions.get(...)
+event.permissions.remove(...)
+event.permissions.update(...)
+```
+
+## **Sub-Events (Nested Events)**  
+```py
+event.subEvents.add(...)
+event.subEvents.get(...)
+event.subEvents.remove(...)
+event.subEvents.update(...)
+```
+
+## **Deadlines & Scheduling**  
+```py
+event.deadlines.add(...)
+event.deadlines.get(...)
+event.deadlines.remove(...)
+event.deadlines.update(...)
+```
+
+## **Quizzes, Tests & Activities**  
+```py
+event.activities.add(...)
+event.activities.get(...)
+event.activities.remove(...)
+event.activities.update(...)
+```
+
+## **Event Website & Contact Management**  
+```py
+event.site.get(...)
+event.site.update(...)
+event.site.remove(...)
+event.contacts.get(...)
+event.contacts.add(...)
+event.contacts.remove(...)
+event.contacts.update(...)
 ```
