@@ -1,12 +1,7 @@
 from dotenv import load_dotenv
-import os
+import os, pymongo
 
 load_dotenv()
 
 
-DB = {
-    "mongodb": {
-        "name": "Ecoi",
-        "connectionString": os.getenv("MONGODB_CONNECTION_STRING")
-    },
-}
+DB = pymongo.MongoClient(os.getenv("MONGODB_CONNECTION_STRING"))['Ecoi [Beta]']
